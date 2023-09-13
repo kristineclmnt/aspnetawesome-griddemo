@@ -6,7 +6,7 @@ Feature: Grid
 
     Scenario Outline: Test Attempt #1
         Then the user searches for data in the Grid
-            | Id   | Person    | Food         | Country       | Date      | Location   | Chef           |
-            | 2029 | Elizabeth | Hot Beverage | Kitej         | 8/1/2011  | Tavern     | Hyperion Light |
-            | 1831 | Marcus    | foodApple    | Goldshire     | 11/9/2017 | Restaurant | Hyperion Light |
-            | 1935 | Scott     | Oat meal     | Elwynn Forest | 3/5/2019  | Diner      | Peter Gibbons  |
+            | Id   | Person    | Food         | Country       | Date       | Location   | Chef            |
+            | 2029 | Jessica   | Soup         | Goldshire     | 3/15/2018  | University | Pepper Tomato   |
+            | 1831 | Dolores   | Banana       | La Croisette  | 10/11/2011 | Restaurant | Tom Smykowski   |
+            | 1935 | Mary      | Hot Beverage | Jisina        | 2/5/2012   | University | Demeter Harvest |

@@ -13,31 +13,18 @@ class GridPage {
         this.el.pageSizeDropdownMenu().children().find('li').contains(numOfItems).click()
     }
 
-    lookForIdValue(id: string) {
-        this.el.grid().scrollIntoView()
-        this.el.firstPageNumberButton().click()
-        this.el.grid().children().find('tr').contains(id).should('exist').then((row) => {
-            let tdTextValues: string[] = []
+    checkRow(rowData: any) {
+        const { Id, Person, Food, Country, Date, Location, Chef } = rowData;
 
-            row.find('td').each((index, td) => {
-                tdTextValues.push(Cypress.$(td).text().trim());
-            });
-
-            cy.log('TD Text Values:', tdTextValues);
-            cy.wrap(tdTextValues).as('rowValues')
-        })
-    }
-
-    clickPageAndCheckForId(id: string, currentPage: number, lastPage: number) {
-        this.el.pageNumberButton().contains(currentPage.toString()).click();
-
-        this.el.grid().children().find('tr').contains(id).should('exist').then((row) => {
-            if (row.length === 0) {
-                if (currentPage < lastPage) {
-                    this.clickPageAndCheckForId.call(this, id, currentPage + 1, lastPage)
-                }
-            }
-        })
+        cy.get("table tbody tr")
+            .contains("td", Id)
+            .parent("tr")
+            .should("contain", Person)
+            .should("contain", Food)
+            .should("contain", Country)
+            .should("contain", Date)
+            .should("contain", Location)
+            .should("contain", Chef);
     }
 
 }
