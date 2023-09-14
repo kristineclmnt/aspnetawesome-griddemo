@@ -16,7 +16,7 @@ class GridPage {
     checkRow(rowData: any) {
         const { Id, Person, Food, Country, Date, Location, Chef } = rowData;
 
-        cy.get("table tbody tr")
+        this.el.grid()
             .contains("td", Id)
             .parent("tr")
             .should("contain", Person)
